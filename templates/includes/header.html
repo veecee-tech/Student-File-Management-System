@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>Student File Management System</title>
+		<meta charset = "utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+		<link rel = "stylesheet" type="text/css" href="{% static 'css/jquery.dataTables.css' %}" />
+		<link rel = "stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+		<link rel = "stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+		<script src=" {% static 'js/jquery-3.2.1.min.js' %} "></script>
+		<script src=" {% static 'js/turn.js' %} "></script>
+ 
+	</head>
+<body>
+
+	<div class="container header">
+		<div id="content">
+			<div class="logo">
+					SFMS
+			</div>
+			<div class="app-title">
+				Student File Management System
+			</div>
+			{% if user.is_authenticated %}
+				<div class="right">
+					<ul class = 'outer-ul'>
+						<li><i class = "glyphicon glyphicon-user"></i> {{user.username}} <i class = "glyphicon glyphicon-arrow-down"></i>
+							<ul class = 'inner-ul'>
+								<li> <a href = "{% url 'logout' %}"> Log out</a> </li>
+							</ul>
+						</li> 
+					 </ul>
+				</div>
+			{% endif %}
+		</div>
+
+		<style>
+			.outer-ul{
+				position: relative;
+
+			}
+			.inner-ul{
+				position: absolute;
+				width: 100%;
+				left: 0;
+				height: 0;
+				transition: height .5s ease;
+				overflow: hidden;
+			}
+
+		</style>
+		<script defer> 
+			const inner_ul = document.querySelector('.inner-ul');
+			const outer_ul = document.querySelector('.outer-ul');
+			const height = '100px';
+
+			outer_ul.addEventListener('click', () => {
+				if(getComputedStyle(inner_ul).getPropertyValue('height') == '0px')
+				inner_ul.style.height = height;
+				else{
+				inner_ul.style.height = '0px';
+					
+				}
+			})
+		</script>
+	</div>
+	

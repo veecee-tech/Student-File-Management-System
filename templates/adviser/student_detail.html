@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+{% include 'includes/sidebar.html' %}
+
+<div id="dashboard-content">
+
+    {{single_student.first_name}}
+    {{single_student.last_name}}
+    {{single_student.mat_no}}
+    {{single_student.student_id}}
+    {{single_student.user.level}}
+
+    {{single_student.user.level}}
+    
+    {% include 'includes/footer.html' %}
+        
+</div>
+
+
+{% endblock content %}

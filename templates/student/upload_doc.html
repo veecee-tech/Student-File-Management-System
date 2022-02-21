@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+{% include 'includes/sidebar.html' %}
+
+
+<div id="dashboard-content">
+<div class="col-md-5" style="margin-top:-100px !important; z-index:0 !important;">
+        
+	<div class="panel panel-default" id="panel-margin">
+        
+		<div class="panel-heading">
+			<center><h1 class="panel-title">Upload Credentials</h1></center>
+		</div>
+        {% include 'partials/_alerts.html' %}
+		<div class="panel-body">
+			<form method="POST" enctype="multipart/form-data" class="hello">
+	
+				{% csrf_token %}
+                {{ forms |crispy }}
+            
+                                <div class="row">
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-primary"  name="Upload"><span class="glyphicon glyphicon-upload"></span> Upload</button>
+                                    </div>
+                                
+                                </div>
+			</form>
+		</div>
+	</div>
+</div>	
+ 
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+{% include 'includes/sidebar.html' %}
+
+
+<div id="dashboard-content">
+<div class="col-md-5" style="margin-top:-100px !important; z-index:0 !important;">
+        
+	<div class="panel panel-default" id="panel-margin">
+        
+		<div class="panel-heading">
+			<center><h1 class="panel-title">Add a Student</h1></center>
+		</div>
+        {% include 'partials/_alerts.html' %}
+		<div class="panel-body">
+			<form method="POST">
+				{% csrf_token %}
+                {{ forms |crispy }}
+            
+                                <div class="row">
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-primary"  name="Register"><span class="glyphicon glyphicon-plus-sign"></span> Register</button>
+                                    </div>
+                                
+                                </div>
+			</form>
+		</div>
+	</div>
+</div>	
+ 
+</div>
+
+
+
+{% endblock content %}

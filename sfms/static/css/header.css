@@ -1,0 +1,52 @@
+:root{
+	--header-color: rgb(26, 32, 53);
+}
+
+.container.header{
+    margin: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    position: fixed;
+    /* border-bottom: 1px solid rgba(26,32,53, .5); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index:9999 !important;
+}
+
+.container.header #content{
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    padding: 10px;
+
+}
+
+.container.header #content .logo{
+    /* flex-grow: 1; */
+    color: white;
+    font-weight: 300;
+    font-size: 24px;
+}
+.container.header #content .right .outer-ul li{
+    font-size: 14px;
+    margin-top: 6px;
+    margin-right: 15px;
+    cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 5px;
+
+}
+.container.header #content .app-title{
+    flex-grow: 1;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+.container.header #content .right{
+    /* flex-grow: 1; */
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+

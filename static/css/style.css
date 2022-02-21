@@ -1,0 +1,26 @@
+*{
+	overflow: hidden;
+}
+
+body{
+	/* height: 100vh; */
+	max-width: calc(100vh- 1em);
+}
+
+#footer{
+	height:30px;
+	width:100%;
+	display: grid;
+	place-content: center;
+	background-image: linear-gradient(rgb(130, 0, 156), #EEE 50%, #E4E4E4);
+	background-repeat: no-repeat;
+	filter: none;
+	border: 1px solid #D5D5D5;
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	bottom: 0;
+	border-width: 1px 0 0;
+}
+

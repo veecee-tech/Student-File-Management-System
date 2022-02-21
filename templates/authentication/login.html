@@ -1,0 +1,43 @@
+
+{% extends 'base/base.html' %}
+{% load static %}
+
+ {% block content %}
+ <br><br><br><br>
+ <div class="col-md-4">
+ </div>
+
+	<div class="col-md-4" >
+        
+	<div class="panel panel-default" id="panel-margin">
+        
+		<div class="panel-heading">
+			<center><h1 class="panel-title">Login</h1></center>
+		</div>
+        {% include 'partials/_alerts.html' %}
+		<div class="panel-body">
+			<form method="POST">
+				{% csrf_token %}
+				{% for field in forms %}
+                                    <div class="form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                        </div>
+                        {{ field }}
+                                    </div>
+                {% endfor %}
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-primary"  name="Login"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+                                    </div>
+                                
+                                </div>
+			</form>
+		</div>
+	</div>
+</div>	
+ 
+ {% endblock content %}

@@ -1,0 +1,127 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+   
+    .lastpage, .firstpage{
+        background: pink;
+    }
+</style>
+
+{% include 'includes/sidebar.html' %}
+
+<div id="dashboard-content">
+<div class="bookflow" style="overflow: hidden;">
+    <div id="flipbook">
+        <div class="firstpage">first page</div>
+
+
+        {% comment %} School admission letter {% endcomment %}
+        {% if student_doc.admission_letter %}
+            <img src="{{student_doc.admission_letter.url}}" alt="">
+        {% endif %}
+
+        {% comment %} Jamb original result  {% endcomment %}
+        {% if student_doc.jamb_original_result %}
+        <img src="{{student_doc.jamb_original_result.url}}" alt="">
+        {% endif %}
+         
+        {% comment %} ssce result 1 {% endcomment %}
+        {% if student_doc.ssce_1 %}
+        <img src="{{student_doc.ssce_1.url}}" alt="">
+        {% endif %}
+
+        {% comment %} ssce result 2 {% endcomment %}
+        {% if student_doc.ssce_2 %}
+        <img src="{{student_doc.ssce_2.url}}" alt="">
+        {% endif %}
+        
+        {% comment %} jamb admission letter {% endcomment %}
+        {% if student_doc.jamb_adm_letter %}
+        <img src="{{student_doc.jamb_adm_letter.url}}" alt="">
+        {% endif %}
+
+        {% comment %} state of origin  {% endcomment %}
+        {% if student_doc.state_of_origin %}
+        <img src="{{student_doc.state_of_origin.url}}" alt="">
+        {% endif %}
+
+        {% comment %} state of origin  {% endcomment %}
+        {% if student_doc.birth_cert %}
+        <img src="{{student_doc.birth_cert.url}}" alt="">
+        {% endif %}
+
+        {% comment %} 100level course registration {% endcomment %}
+        {% if student_doc.course_reg_100 %}
+        <img src="{{student_doc.course_reg_100.url}}" alt="">
+        {% endif %}
+
+        {% comment %} payment slip 100level {% endcomment %}
+        {% if student_doc.payment_slip_100 %}
+        <img src="{{student_doc.payment_slip_100.url}}" alt="">
+        {% endif %}
+
+        {% comment %} 200level course registration {% endcomment %}
+        {% if student_doc.course_reg_200 %}
+        <img src="{{student_doc.course_reg_200.url}}" alt="">
+        {% endif %}
+    
+        {% comment %} payment slip 200level {% endcomment %}
+        {% if student_doc.payment_slip_200 %}
+        <img src="{{student_doc.payment_slip_200.url}}" alt="">
+        {% endif %}
+
+        {% comment %} 300level course registration {% endcomment %}
+        {% if student_doc.course_reg_300 %}
+        <img src="{{student_doc.course_reg_300.url}}" alt="">
+        {% endif %}
+
+        {% comment %} payment slip 300level {% endcomment %}
+        {% if student_doc.payment_slip_300 %}
+        <img src="{{student_doc.payment_slip_300.url}}" alt="">
+        {% endif %}
+
+        {% comment %} 400level course registration {% endcomment %}
+        {% if student_doc.course_reg_400 %}
+        <img src="{{student_doc.course_reg_400.url}}" alt="">
+        {% endif %}
+
+        {% comment %} payment slip 400level {% endcomment %}
+        {% if student_doc.payment_slip_400 %}
+        <img src="{{student_doc.payment_slip_400.url}}" alt="">
+        {% endif %}
+
+        {% comment %} 500level course registration {% endcomment %}
+        {% if student_doc.course_reg_500 %}
+        <img src="{{student_doc.course_reg_500.url}}" alt="">
+        {% endif %}
+
+        {% comment %} payment slip 500level {% endcomment %}
+        {% if student_doc.payment_slip_500 %}
+        <img src="{{student_doc.payment_slip_500.url}}" alt="">
+        {% endif %}
+        
+        <div class="lastpage">last page</div>
+    </div>
+</div>
+    
+
+
+{% include 'includes/footer.html' %}
+        
+</div>
+<script type="text/javascript">
+    $("#flipbook").turn({
+        width: 800,
+        height:500,
+        page:1,
+       
+        duration:2000
+    });
+</script>
+
+
+{% endblock content %}

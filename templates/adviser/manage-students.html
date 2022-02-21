@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+{% include 'includes/sidebar.html' %}
+
+<div id="dashboard-content">
+    <div class="manage-header">
+        <h2 style="width:500px">Manage Students</h2>
+        <form action="{% url 'search' %}" method="GET" class="search">
+    
+              <input type="text" class="form-control" name="keyword" placeholder="Search">
+              
+        </form>
+    </div>
+    {% comment %} {{students}} {% endcomment %}
+            <br><br>
+
+  <table class="table table-dark table-striped table-hover">
+    <thead width="100%">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Matric Number</th>
+        <th>Student ID</th>
+        <th>Level</th>
+        <th width="30%">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td>{{student.first_name}}</td>
+        <td>{{student.last_name}}</td>
+        <td>{{student.user.username}}</td>
+        <td>{{student.student_id}}</td>
+        <td>{{student.user.level}}</td>
+        <td> 
+            <a href="{% url 'student-document' student.user.studentdocument.id %}" class='btn btn-success btn-sm'>View Records</a>
+            <a href="{% url 'delete_student' student.id %}" class='btn btn-danger btn-sm'>Delete</a>
+            <a href="{% url 'move_to_alumni' student.user.id %}" class='btn btn-default btn-sm'>Move To Archive</a>
+        
+        </td>
+      </tr>
+      {% endfor %}
+      
+      
+      
+    </tbody>
+  </table>
+  <nav class="mt-4" aria-label="Page navigation sample">
+    {% if students.has_other_pages %}
+      <ul class="pagination">
+      {% if students.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{students.previous_page_number}}">Previous</a></li>
+      {% else %}
+      <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+      {% endif %}
+    
+      {% for i in students.paginator.page_range %}
+      
+      {% if students.number == i %}
+        <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+      {% endif %}
+      
+      {% endfor %}
+        
+    
+    
+      {% if students.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{students.next_page_number}}">Next</a></li>
+      {% else %}
+      <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+      {% endif %}
+    
+      </ul>
+    {% endif %}
+    </nav>
+  <div>
+    <a href=" {% url 'update-level' %} " class="btn btn-default">Update Students Level</a>
+  </div>
+    {% include 'includes/footer.html' %}
+</div>
+
+
+{% endblock content %}
+

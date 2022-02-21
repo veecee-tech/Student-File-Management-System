@@ -1,0 +1,83 @@
+{% load static %}
+
+<div id="sidebar">
+	<ul id = "menu" class = "nav menu">
+		<li>
+			<a href = "" >
+				{{ user.username }}
+			</a>
+		</li>
+
+		<li>
+			<a href ={% if request.user.is_adviser %} "{% url 'adviser_home' %}" {% else %} "{% url 'student_home' %}" {% endif %}
+				class = 
+						{% if 'dashboard' in request.get_full_path %}
+							"active"
+						{% endif %}>
+				<i class = "glyphicon glyphicon-home"></i> 
+				Dashboard
+			</a>
+		</li>
+		
+		{% if request.user.is_adviser %}
+
+			<li>
+				<a href = "{% url 'register' %}" 
+					class=  
+							{% if 'register-student' in request.get_full_path %}
+								"active"
+							{% endif %}>
+					<i class = "glyphicon glyphicon-plus-sign"></i> 
+					Add Student
+				</a>
+			</li>
+
+			<li>
+				<a href = "{% url 'manage-students' %}" 
+					class=
+						{% if 'manage' in request.get_full_path %}
+							"active"
+						{% endif %}>
+					<i class = "glyphicon glyphicon-user"></i> 
+					Manage Students
+				</a>
+			</li>
+		{% endif %}
+		
+
+		<li> 
+			<a href = {% if request.user.is_adviser %}"{% url 'update-adviser' %}" {% else %}"{% url 'update-student'%}"{% endif %} 
+				class=
+						{% if 'update' in request.get_full_path %}
+							"active"
+						{% endif %}> 
+					<i class = "glyphicon glyphicon-edit"></i>
+				Update Profile 
+			</a>
+		</li>
+
+		{% if request.user.is_student %}
+			<li> 
+				<a href ="{% url 'upload_doc'%}"
+				  class={% if 'upload' in request.get_full_path %}
+				"active"
+				{% endif %}> 
+				
+					<i class = "glyphicon glyphicon-upload"></i>
+					Upload Files 
+				</a>
+			</li>
+		{% endif %}
+
+		<li> 
+			<a href ="{% url 'change_password' %}"
+			class={% if 'change' in request.get_full_path %}
+			"active"
+			{% endif %}> 	
+			
+				<i class = "glyphicon glyphicon-lock"></i>
+				Change Password 
+			</a>
+		</li>
+	</ul>
+</div>

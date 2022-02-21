@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% include 'includes/sidebar.html' %}
+<div id="dashboard-content">
+    <br>
+   <p>Welcome, {{user.username | title}}!</p>
+    <div class="mission">
+        <h3>Mission</h3>
+        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, dignissimos ratione. Fuga facere quia iusto blanditiis amet corrupti quidem cumque tenetur, impedit doloribus possimus ratione repellendus, placeat eligendi sit molestias.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque veritatis dignissimos doloribus aut, illo fugit maiores voluptatibus expedita quam similique laboriosam? Magnam accusantium maxime dignissimos mollitia, debitis repudiandae officiis ratione?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque veritatis dignissimos doloribus aut, illo fugit maiores voluptatibus expedita quam similique laboriosam? Magnam accusantium maxime dignissimos mollitia, debitis repudiandae officiis ratione?
+        
+        </span>
+    </div> 
+    <div class="vision">
+        <h3>Vision</h3>
+        <span>
+            
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque veritatis dignissimos doloribus aut, illo fugit maiores voluptatibus expedita quam similique laboriosam? Magnam accusantium maxime dignissimos mollitia, debitis repudiandae officiis ratione?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque veritatis dignissimos doloribus aut, illo fugit maiores voluptatibus expedita quam similique laboriosam? Magnam accusantium maxime dignissimos mollitia, debitis repudiandae officiis ratione?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque veritatis dignissimos doloribus aut, illo fugit maiores voluptatibus expedita quam similique laboriosam? Magnam accusantium maxime dignissimos mollitia, debitis repudiandae officiis ratione?
+        
+        </span>
+    </div> 
+   
+    {% include 'includes/footer.html' %}
+</div>
+
+
+{% endblock content %}
+
