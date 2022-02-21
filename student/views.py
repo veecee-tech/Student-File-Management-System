@@ -100,7 +100,7 @@ def upload_document_view(request):
     
     if request.user.level == '500':
         
-        if request.method == "POST" and userdoc.course_reg_500 is None:
+        if request.method == "POST":
 
             
             forms = UploadDocumentForm500(request.POST, request.FILES or None, instance=request.user.studentdocument)
