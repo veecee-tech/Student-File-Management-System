@@ -6,6 +6,7 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from django_currentuser.middleware import get_current_authenticated_user
 
+import re
 
 
 class UserLoginForm(forms.Form):
@@ -28,6 +29,10 @@ class UserCreationForm(forms.ModelForm):
 
         if qs.exists():
             raise forms.ValidationError("username already exists")
+
+        if not re.match(r'^([0-9]){4}\/([1-2]){1}\/([1-9]){5}([A-Za-z]){2}$', username):
+            raise forms.ValidationError("Not a Valid matric number")
+            
         return username
 
     def clean(self):

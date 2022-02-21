@@ -149,6 +149,7 @@ def update_students_level(request):
 def move_to_archive(request, pk):
 
     student = StudentProfile.objects.get(user_id = pk, adviser_id = request.user.id)
+    
     user = Account.objects.get(id = pk)
     user.level = 'ALUMNI'
     user.is_active = False
